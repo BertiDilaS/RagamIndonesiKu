@@ -1,18 +1,12 @@
 package id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.ArrayList;
 
-import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.adapter.ProvinsiAdapter;
 import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.model.Provinsi;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ArrayList<Provinsi> mListAll = new ArrayList<>();
+        String mQuery;
 
 
         findViewById(R.id.bSTART).setOnClickListener(new View.OnClickListener()

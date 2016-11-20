@@ -15,12 +15,41 @@
   -->
 <resources>
     <string-array name="provinsi">
+        <item>Nangroe Aceh Darusallam</item>
+        <item>Sumatra Utara</item>
+        <item>Sumatra Barat</item>
+        <item>Riau</item>
+        <item>Kepulauan Riau</item>
+        <item>Jambi</item>
+        <item>Sumatra Selatan</item>
+        <item>Bangka Belitung</item>
+        <item>Bengkulu</item>
+        <item>DKI Jakarta</item>
+        <item>Jawa Barat</item>
+        <item>Banten</item>
         <item>Jawa Tengah</item>
+        <item>Yogyakarta</item>
         <item>Jawa Timur</item>
+        <item>Bali</item>
+        <item>NTT</item>
+        <item>NTB</item>
+        <item>Kalimantan Utara</item>
         <item>Kalimantan Barat</item>
-        <item>Maluku Utara</item>
-        <item>Maluku</item>
+        <item>Kalimantan Tengah</item>
         <item>Kalimantan Selatan</item>
+        <item>Kalimantan Timur</item>
+        <item>Sulawesi Utara</item>
+        <item>Sulawesi Barat</item>
+        <item>Sulawesi Tengah</item>
+        <item>Sulawesi Tenggara</item>
+        <item>Sulawesi Selatan</item>
+        <item>Gorontalo</item>
+        <item>Maluku</item>
+        <item>Maluku Utara</item>
+        <item>Papua</item>
+        <item>Papua Barat</item>
+
+
     </string-array>
     <string-array name="detail_provinsi">
         <item>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -67,11 +96,37 @@
         </item>
     </string-array>
     <array name="places_picture">
+        <item>@mipmap/nad</item>
+        <item>@mipmap/sumut</item>
+        <item>@mipmap/sumbar</item>
+        <item>@mipmap/riaupekanbaru</item>
+        <item>@mipmap/kepulauanriau</item>
+        <item>@mipmap/jambi</item>
+        <item>@mipmap/sumsel</item>
+        <item>@mipmap/babel</item>
+        <item>@mipmap/bengkulu</item>
+        <item>@mipmap/dkijakarta</item>
+        <item>@mipmap/jabar</item>
+        <item>@mipmap/banten</item>
         <item>@mipmap/jateng</item>
+        <item>@mipmap/diy</item>
         <item>@mipmap/jatim</item>
+        <item>@mipmap/bali</item>
+        <item>@mipmap/ntb</item>
+        <item>@mipmap/ntt</item>
+        <item>@mipmap/kaltara</item>
         <item>@mipmap/kalbar</item>
-        <item>@mipmap/malukuutara</item>
-        <item>@mipmap/maluku</item>
+        <item>@mipmap/kalteng</item>
         <item>@mipmap/kalsel</item>
+        <item>@mipmap/kaltim</item>
+        <item>@mipmap/sulut</item>
+        <item>@mipmap/sulawesibarat</item>
+        <item>@mipmap/sulteng</item>
+        <item>@mipmap/sulsel</item>
+        <item>@mipmap/gorontalo</item>
+        <item>@mipmap/maluku</item>
+        <item>@mipmap/malukuutara</item>
+        <item>@mipmap/papua</item>
+        <item>@mipmap/papuabarat</item>
     </array>
 </resources>
