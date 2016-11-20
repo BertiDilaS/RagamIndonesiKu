@@ -1,5 +1,6 @@
 package id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku;
 
+import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -55,11 +56,15 @@ public class Main2Activity extends AppCompatActivity
         String[] arJudul = resources.getStringArray(R.array.provinsi);
         String[] arDeskripsi = resources.getStringArray(R.array.detail_provinsi);
         TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-        Drawable[] arFoto = new Drawable[a.length()];
+        String[] arFoto = new String[a.length()];
 
         for (int i = 0; i < arFoto.length; i++) {
 
-            arFoto[i] = a.getDrawable(i);
+            int id = a.getResourceId(i,0);
+            arFoto[i] = ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+                    + resources.getResourcePackageName(id) + '/'
+                    + resources.getResourceTypeName(id) + '/'
+                    + resources.getResourceEntryName(id);
         }
         a.recycle();
 
