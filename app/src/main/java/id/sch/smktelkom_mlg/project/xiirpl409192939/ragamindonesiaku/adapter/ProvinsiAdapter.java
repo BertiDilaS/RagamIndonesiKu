@@ -1,5 +1,6 @@
 package id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.adapter;
 
+import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,12 +20,22 @@ import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.model.Provi
 
 public class ProvinsiAdapter extends RecyclerView.Adapter<ProvinsiAdapter.ViewHolder>
 {
+
+    public interface IProvinsiAdapter
+    {
+        void doClick(int pos);
+    }
+
+    IProvinsiAdapter mIProvinsiAdapter;
+
     ArrayList<Provinsi> provinsiList;
 
-    public ProvinsiAdapter(ArrayList<Provinsi> provinsiList)
+    public ProvinsiAdapter(Context context, ArrayList<Provinsi> provinsiList)
     {
         this.provinsiList = provinsiList;
+        mIProvinsiAdapter = (IProvinsiAdapter) context;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -61,6 +72,15 @@ public class ProvinsiAdapter extends RecyclerView.Adapter<ProvinsiAdapter.ViewHo
             ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
             tvJudul = (TextView) itemView.findViewById(R.id.textViewJudul);
             tvDeskripsi = (TextView) itemView.findViewById(R.id.textViewDeskripsi);
+
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    mIProvinsiAdapter.doClick(getAdapterPosition());
+                }
+            });
         }
     }
 }

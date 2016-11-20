@@ -1,6 +1,7 @@
 package id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -18,9 +19,10 @@ import java.util.ArrayList;
 import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.adapter.ProvinsiAdapter;
 import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.model.Provinsi;
 
-public class Main2Activity extends AppCompatActivity
+public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.IProvinsiAdapter
 {
 
+    public static final String PROVINSI = "provinsi";
     ArrayList<Provinsi> mList = new ArrayList<>();
     ProvinsiAdapter mAdapter;
 
@@ -44,7 +46,7 @@ public class Main2Activity extends AppCompatActivity
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new ProvinsiAdapter(mList);
+        mAdapter = new ProvinsiAdapter(this,mList);
         recyclerView.setAdapter(mAdapter);
 
         fillData();
@@ -74,4 +76,11 @@ public class Main2Activity extends AppCompatActivity
         mAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void doClick(int pos)
+    {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(PROVINSI,mList.get(pos));
+        startActivity(intent);
     }
+}
