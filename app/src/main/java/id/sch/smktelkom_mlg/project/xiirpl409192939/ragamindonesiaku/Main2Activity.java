@@ -4,14 +4,17 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -25,6 +28,13 @@ public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.
     public static final String PROVINSI = "provinsi";
     ArrayList<Provinsi> mList = new ArrayList<>();
     ProvinsiAdapter mAdapter;
+
+    ArrayList<Provinsi> mListAll = new ArrayList<>();
+    boolean isFiltered;
+    ArrayList<Integer> mListMapFilter = new ArrayList<>();
+    String mQuery;
+
+
 
 
     @Override
@@ -72,6 +82,58 @@ public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.
 
         for (int i = 0; i < arJudul.length; i++) {
             mList.add(new Provinsi(arJudul[i], arDeskripsi[i], arFoto[i]));
+        }
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView)
+                MenuItemCompat.getActionView(searchItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mQuery = newText.toLowerCase();
+                doFilter(mQuery);
+                return true;
+            }
+        });
+        return true;
+
+
+    }
+
+
+    private void doFilter(String mQuery) {
+        if (!isFiltered) {
+            mListAll.clear();
+            mListAll.addAll(mList);
+            isFiltered = true;
+        }
+        mList.clear();
+        if (mQuery == null || mQuery.isEmpty()) {
+            mList.addAll(mListAll);
+            isFiltered = false;
+        } else {
+            mListMapFilter.clear();
+            for (int i = 0; i < mListAll.size(); i++) {
+                Provinsi provinsi = mListAll.get(i);
+                if (provinsi.judul.toLowerCase().contains(mQuery) ||
+                        provinsi.deskripsi.toLowerCase().contains(mQuery))
+                    mList.add(provinsi);
+                mListMapFilter.add(i);
+
+            }
         }
         mAdapter.notifyDataSetChanged();
     }
