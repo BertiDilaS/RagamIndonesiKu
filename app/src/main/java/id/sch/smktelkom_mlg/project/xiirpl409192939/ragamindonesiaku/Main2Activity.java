@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,12 +13,13 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.adapter.ProvinsiAdapter;
 import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.model.Provinsi;
+import id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku.model.about;
 
 public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.IProvinsiAdapter
 {
@@ -35,23 +34,15 @@ public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.
     String mQuery;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        setTitle("Ragam Indonesiaku");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -90,10 +81,8 @@ public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_detail, menu);
-
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView)
-                MenuItemCompat.getActionView(searchItem);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -113,26 +102,50 @@ public class Main2Activity extends AppCompatActivity implements ProvinsiAdapter.
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-    private void doFilter(String mQuery) {
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, about.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_search) {
+            Toast.makeText(getApplicationContext(), "Search on process!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void doFilter(String query) {
         if (!isFiltered) {
             mListAll.clear();
             mListAll.addAll(mList);
             isFiltered = true;
         }
+
         mList.clear();
-        if (mQuery == null || mQuery.isEmpty()) {
+        if (query == null || query.isEmpty()) {
             mList.addAll(mListAll);
             isFiltered = false;
         } else {
             mListMapFilter.clear();
             for (int i = 0; i < mListAll.size(); i++) {
                 Provinsi provinsi = mListAll.get(i);
-                if (provinsi.judul.toLowerCase().contains(mQuery) ||
-                        provinsi.deskripsi.toLowerCase().contains(mQuery))
+                if (provinsi.judul.toLowerCase().contains(query) ||
+                        provinsi.deskripsi.toLowerCase().contains(query)) {
                     mList.add(provinsi);
-                mListMapFilter.add(i);
-
+                    mListMapFilter.add(i);
+                }
             }
         }
         mAdapter.notifyDataSetChanged();
