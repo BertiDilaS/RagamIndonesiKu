@@ -1,6 +1,7 @@
 package id.sch.smktelkom_mlg.project.xiirpl409192939.ragamindonesiaku;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,9 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "LiveCycleTag";
     private static int splashInterval = 2000;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, splashInterval);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.song);
+
+
     }
 }
 
