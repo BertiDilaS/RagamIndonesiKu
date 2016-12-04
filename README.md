@@ -8,7 +8,7 @@
     - Nama            : Berti Dila Septia  
     - Kelas           : XII - RPL 4
     - No Urut         : 09
-    - NIS             : 
+    - NIS             : 4309/1207.063
     - User            : BertiDilaS
     - Nama Sekolah    : SMK Telkom Malang
 
@@ -24,7 +24,7 @@
     - Nama            : Rasendriya Indri
     - Kelas           : XII - RPL 4
     - No Urut         : 29
-    - NIS             : 
+    - NIS             : 4419/1317.063
     - User            : Rasendriya
     - Nama Sekolah    : SMK Telkom Malang
     
