@@ -20,7 +20,7 @@ https://github.com/BertiDilaS/RagamIndonesiaKu
 
 ## Identitas Anggota
 * Anggota 1
-    - Nama            : Berti Dila Septia  
+    - Nama            : Berti Dila Septiana 
     - Kelas           : XII - RPL 4
     - No Urut         : 09
     - NIS             : 4309/1207.063
@@ -36,7 +36,7 @@ https://github.com/BertiDilaS/RagamIndonesiaKu
     - Nama Sekolah    : SMK Telkom Malang
     
 * Anggota 3
-    - Nama            : Rasendriya Indri
+    - Nama            : Rasendriya Indi
     - Kelas           : XII - RPL 4
     - No Urut         : 29
     - NIS             : 4419/1317.063
