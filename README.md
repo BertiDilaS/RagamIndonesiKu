@@ -31,12 +31,12 @@ https://github.com/BertiDilaS/RagamIndonesiaKu
     - Nama            : Khrisna Wahyu Kumalasari  
     - Kelas           : XII - RPL 4
     - No Urut         : 19
-    - NIS             : 
+    - NIS             : 4366/1264.063
     - User            : Krisnakumalasari
     - Nama Sekolah    : SMK Telkom Malang
     
 * Anggota 3
-    - Nama            : Rasendriya Indi
+    - Nama            : Rasendriya Widya A
     - Kelas           : XII - RPL 4
     - No Urut         : 29
     - NIS             : 4419/1317.063
